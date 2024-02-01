@@ -1,8 +1,11 @@
 first:
+  company: kpmg
   name: First quote
 
 second:
-  name: Second quote!
+  company: kpmg
+  name: Second quote
 
 third:
-  name: Third (3rd) quote
+  company: kpmg
+  name: Third quote
