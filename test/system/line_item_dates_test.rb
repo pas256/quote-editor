@@ -1,5 +1,9 @@
 require "application_system_test_case"
 
+# def nested_dom_id(*args)
+#   args.map { |arg| arg.respond_to?(:to_key) ? dom_id(arg) : arg }.join("_")
+# end
+
 class LineItemDatesTest < ApplicationSystemTestCase
   setup do
     login_as users(:accountant)
@@ -24,7 +28,7 @@ class LineItemDatesTest < ApplicationSystemTestCase
   test "Updating a line item date" do
     assert_selector "h1", text: "First quote"
 
-    within id: dom_id(@line_item_date) do
+    within id: nested_dom_id(@line_item_date, :edit) do
       click_on "Edit"
     end
 
@@ -40,7 +44,7 @@ class LineItemDatesTest < ApplicationSystemTestCase
     assert_text I18n.l(Date.current, format: :long)
 
     accept_confirm do
-      within id: dom_id(@line_item_date) do
+      within id: nested_dom_id(@line_item_date, :edit) do
         click_on "Delete"
       end
     end
